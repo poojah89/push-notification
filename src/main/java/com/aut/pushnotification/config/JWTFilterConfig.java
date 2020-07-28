@@ -30,7 +30,7 @@ public class JWTFilterConfig extends OncePerRequestFilter {
 
 	private static final String TOKEN_PREFIX = "Bearer";
 
-	private static String[] NO_TOKEN = new String[] { "index", "activation", "actuator" };
+	private static String[] NO_TOKEN = new String[] { "index", "activation", "actuator", "push" };
 
 	private static boolean stringContainsItemFromList(String inputString, String[] items) {
 		return Arrays.stream(items).parallel().anyMatch(inputString::contains);
