@@ -3,9 +3,9 @@ package com.aut.pushnotification.model;
 import lombok.Data;
 
 @Data
-public class PushNotificationRequest {
+public class Filters {
 	
-
-
+	private String[] channelUuids;
+	 
 
 }

@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.aut.pushnotification.exception.handler.ApiError;
+import com.aut.pushnotification.exception.ApiError;
 import com.aut.pushnotification.util.AuthToken;
 import com.aut.pushnotification.util.Authentication;
 
@@ -30,7 +30,7 @@ public class JWTFilterConfig extends OncePerRequestFilter {
 
 	private static final String TOKEN_PREFIX = "Bearer";
 
-	private static String[] NO_TOKEN = new String[] { "index", "activation", "actuator", "push" };
+	private static String[] NO_TOKEN = new String[] { "index", "activation", "actuator", "push", "api" };
 
 	private static boolean stringContainsItemFromList(String inputString, String[] items) {
 		return Arrays.stream(items).parallel().anyMatch(inputString::contains);
@@ -109,9 +109,9 @@ public class JWTFilterConfig extends OncePerRequestFilter {
 		response.setContentType("application/json");
 		// A class used for errors
 		ApiError apiError = new ApiError(400, "Authorisation header is missing", "Invalid Header");
-		apiError.setOutComeCode(400);
-		apiError.setOutComeMessage("Authorisation header is missing");
-		apiError.setDeveloperMessage("Invalid Header");
+		apiError.setOutcomeCode(400);
+		apiError.setOutcomeMessage("Authorisation header is missing");
+		apiError.setInternalMessage("Invalid Header");
 
 		try {
 			String json = apiError.convertToJson();
@@ -126,9 +126,9 @@ public class JWTFilterConfig extends OncePerRequestFilter {
 		response.setContentType("application/json");
 		// A class used for errors
 		ApiError apiError = new ApiError(status, ex);
-		apiError.setOutComeCode(400);
-		apiError.setOutComeMessage(ex.getMessage());
-		apiError.setDeveloperMessage("Invalid Token");
+		apiError.setOutcomeCode(400);
+		apiError.setOutcomeMessage(ex.getMessage());
+		apiError.setInternalMessage("Invalid Token");
 
 		try {
 			String json = apiError.convertToJson();

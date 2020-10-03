@@ -1,0 +1,7 @@
+spring:  application:    name: aut-pushnotification
+app:
+  bulkuploadurl: https://messages.kumulos.com/v2/channels/
+  channelUrl: https://messages.kumulos.com/channels
+  cancelScheduledNotificationUrl: https://messages.kumulos.com/v2/scheduled-notifications/
+  serverKey: E9CQvaGou7BcoHoCkXBs3GgZ6HfRhOoYjArF   apiKey: 2499fbac-39b4-4526-9d64-cf4f18a2038d    filepath: D:\\Pooja
+server:  port: 8080  

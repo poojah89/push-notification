@@ -1,4 +1,4 @@
-package com.aut.pushnotification.exception.handler;
+package com.aut.pushnotification.exception;
 
 import org.springframework.http.HttpStatus;
 
@@ -9,19 +9,21 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class ApiError {
 
 	public ApiError(HttpStatus status, Throwable ex) {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private int outComeCode;
-	private String outComeMessage;
-	private String developerMessage;
+	private int outcomeCode;
+	private String outcomeMessage;
+	private String internalMessage;
 	
 	public String convertToJson() throws JsonProcessingException {
         if (this == null) {
@@ -33,5 +35,7 @@ public class ApiError {
 
         return mapper.writeValueAsString(this);
     }
+
+	
 
 }
