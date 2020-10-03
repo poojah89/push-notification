@@ -319,7 +319,7 @@ public class KumulosService {
 					+ "\"content\": {\r\n" + "\"title\": \"" + title + "\",\r\n"
 					+ "\"message\": \"" + message + " " + "this push notification is sent to you on " + " "
 					+ formatter.format(date) + " " + "via the channel name" + " " + UUID + " to be sent on" + " "
-					+ sendAt + "\"\r\n" + "   	},\r\n" + "\"runBackgroundHandler\": true,\r\n"+ "\"scheduled\": true,\r\n" + "\"schedule\": {\r\n"
+					+ sendAt + "\"\r\n" + "},\r\n" + "\"runBackgroundHandler\": true,\r\n"+ "\"scheduled\": true,\r\n" + "\"schedule\": {\r\n"
 					+ "\"sendAt\": \"" + sendAt + "\",\r\n" + "\"strategy\": \"" + strategy + "\",\r\n"
 					+ "\"pastTimes\": \"" + pastTimes + "\"\r\n" + "}\r\n" + "}";
 
