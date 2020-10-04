@@ -17,6 +17,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<docker-version>${project.version}</docker-version>
+		<docker-repo>pushnotification</docker-repo>
 	</properties>
 
 	<dependencies>
@@ -110,7 +112,17 @@
 	</dependencies>
 
 	<build>
+	<finalName>pushnotificationaut</finalName>
 		<plugins>
+		 <plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.7</version>
+				<configuration>					
+					<tag>${docker-version}</tag>
+					<repository>${docker-repo}/${project.build.finalName}</repository>
+				</configuration>
+			</plugin> 
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
