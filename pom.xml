@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.aut.pushnotification</groupId>
 	<artifactId>PushNotification</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>PushNotification</name>
 	<description>This project is for implementing push notification</description>
 

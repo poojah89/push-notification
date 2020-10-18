@@ -14,6 +14,7 @@ import java.util.List;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -148,10 +149,11 @@ public class KumulosService {
 
 	}
 
-	// @Scheduled(cron = "0 35 12 * * *")
-	public List<UploadResponse> fileUpload(ApplicationType applicationType) throws IOException, InternalException {
+	 @Scheduled(cron = "0 52 22 * * *")
+	public List<UploadResponse> fileUpload() throws IOException, InternalException {
 
 		File dir = new File(filepath);
+		//ApplicationType applicationType = "COMPANION";
 
 		FileFilter fileFilter = new WildcardFileFilter("*.csv");
 		File[] files = dir.listFiles(fileFilter);
@@ -162,7 +164,7 @@ public class KumulosService {
 		UploadResponse response = new UploadResponse();
 		for (int i = 0; i <= numberoffiles - 1; i++) {
 			log.info("The file name to be processed is  " + " " + files[i]);
-			response = fetchResponse(applicationType, files[i]);
+			response = fetchResponse(ApplicationType.COMPANION, files[i]);
 			responseArray.add(i, response);
 		}
 

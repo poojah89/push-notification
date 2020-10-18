@@ -46,7 +46,7 @@ public class push {
 	public ResponseEntity UploadCSv(@RequestParam("KumulousApplication") ApplicationType applicationType)
 			throws IOException, InternalException {
 
-		List<UploadResponse> response = fileUploadService.fileUpload(applicationType);
+		List<UploadResponse> response = fileUploadService.fileUpload();
 		return new ResponseEntity(response, HttpStatus.OK);
 	}
 
